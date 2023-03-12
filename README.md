@@ -63,11 +63,20 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+    - I checked Chrome Dev Tools --> Network --> Preview
+        exception : "#<NameError: uninitialized constant ToysController::Toys>"
+    - in toys_controller, change update action var "Toys" to "Toy"
 
 - Update the number of likes for a toy
 
   - How I debugged:
+    - First "Like" click 
+      - Chrome's Dev Tools showed an "Unexpected end of JSON input" error
+      - check ToysController update action; add "render json: toy"
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+    - got a "404 (Not Found)" error
+    - check Network Preview - "No route matches [DELETE]"
+    - add :destroy to routes.rb
